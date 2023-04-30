@@ -23,7 +23,7 @@ namespace DefaultNamespace
             }
             
             // ...and create new one based on state prefab
-            var index = Mathf.Clamp(pValue / 2 - 1, 0, tileStates.Length - 1);
+            var index = Mathf.Clamp((int)Mathf.Log(pValue, 2) - 1, 0, tileStates.Length - 1);
             var nextState = tileStates[index];
             Instantiate(nextState.prefab, parent: tile.transform);
         }
