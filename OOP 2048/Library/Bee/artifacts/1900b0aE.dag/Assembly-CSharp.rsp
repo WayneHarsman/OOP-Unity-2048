@@ -346,6 +346,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/GameMaster.cs"
+"Assets/Scripts/InGameButtons.cs"
+"Assets/Scripts/InGameMenuHandler.cs"
 "Assets/Scripts/Main Menu Scripts/MainMenuButtons.cs"
 "Assets/Scripts/Main Menu Scripts/SettingsMenu.cs"
 "Assets/Scripts/Main Menu Scripts/Spin.cs"

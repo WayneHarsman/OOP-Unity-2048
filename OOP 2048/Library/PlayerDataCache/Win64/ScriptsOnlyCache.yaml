@@ -3,6 +3,8 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - DefaultNamespace.TileRenderer
     - GameMaster
+    - InGameButtons
+    - InGameMenuHandler
     - MainMenuButtons
     - SettingsMenu
     - Spin
@@ -33,6 +35,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.Outline
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Slider
@@ -106,6 +109,27 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MainMenuButtons
     methodName: OpenOptionsMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: InGameButtons
+    methodName: ExitToMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: InGameButtons
+    methodName: ExitToMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: InGameButtons
+    methodName: ExitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: InGameMenuHandler
+    methodName: Resume
+  - assembly: Assembly-CSharp
+    fullTypeName: InGameButtons
+    methodName: Restart
+  - assembly: Assembly-CSharp
+    fullTypeName: InGameButtons
+    methodName: Restart
+  - assembly: Assembly-CSharp
+    fullTypeName: InGameButtons
+    methodName: ExitGame
   sceneClasses:
     Assets/Scenes/GameScene.unity:
     - Class: 1
@@ -143,28 +167,62 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1546}
     - Class: 114
+      Script: {instanceID: 1584}
+    - Class: 114
+      Script: {instanceID: 2562}
+    - Class: 114
       Script: {instanceID: 2722}
+    - Class: 114
+      Script: {instanceID: 2760}
+    - Class: 114
+      Script: {instanceID: 3036}
     - Class: 114
       Script: {instanceID: 3138}
     - Class: 114
+      Script: {instanceID: 4932}
+    - Class: 114
       Script: {instanceID: 5208}
     - Class: 114
+      Script: {instanceID: 5468}
+    - Class: 114
+      Script: {instanceID: 5612}
+    - Class: 114
+      Script: {instanceID: 5920}
+    - Class: 114
       Script: {instanceID: 6016}
+    - Class: 114
+      Script: {instanceID: 6244}
     - Class: 114
       Script: {instanceID: 6324}
     - Class: 114
       Script: {instanceID: 6728}
     - Class: 114
       Script: {instanceID: 6988}
+    - Class: 114
+      Script: {instanceID: 39614}
+    - Class: 114
+      Script: {instanceID: 40110}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     - Class: 241
       Script: {instanceID: 0}
@@ -894,7 +952,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 51f9026bbe61040c868ed79b55a26332
+      Hash: 3ed83ce18d0f16a0633a516ff88155c9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameMaster
@@ -1114,6 +1172,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 930b2a7c015542327cee6af349728cdd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InGameButtons
+  - hash:
+      serializedVersion: 2
+      Hash: c7d1c461558030a711efa889cecb447c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InGameMenuHandler
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenuScene.unity
