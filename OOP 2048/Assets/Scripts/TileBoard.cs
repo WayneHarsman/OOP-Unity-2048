@@ -10,20 +10,23 @@ public class TileBoard : MonoBehaviour
     private TileGrid grid;
     private List<Tile> tiles;
     private bool waiting;
-
+    private bool isPaused;
     private void Awake()
     {
         grid = GetComponentInChildren<TileGrid>();
         tiles = new List<Tile>(16);
     }
 
+    public void Pause(bool _pause) { isPaused = _pause; }
     public void ClearBoard()
     {
-        foreach (var cell in grid.cells) {
+        foreach (var cell in grid.cells)
+        {
             cell.tile = null;
         }
 
-        foreach (var tile in tiles) {
+        foreach (var tile in tiles)
+        {
             Destroy(tile.gameObject);
         }
 
@@ -40,15 +43,22 @@ public class TileBoard : MonoBehaviour
 
     private void Update()
     {
-        if (!waiting)
+        if (!waiting && !isPaused)
         {
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
                 Move(Vector2Int.up, 0, 1, 1, 1);
-            } else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+            }
+            else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
                 Move(Vector2Int.left, 1, 1, 0, 1);
-            } else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
+            }
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
                 Move(Vector2Int.down, 0, 1, grid.height - 2, -1);
-            } else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+            }
+            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
                 Move(Vector2Int.right, grid.width - 2, -1, 0, 1);
             }
         }
@@ -64,13 +74,15 @@ public class TileBoard : MonoBehaviour
             {
                 TileCell cell = grid.GetCell(x, y);
 
-                if (cell.occupied) {
+                if (cell.occupied)
+                {
                     changed |= MoveTile(cell.tile, pDirection);
                 }
             }
         }
 
-        if (changed) {
+        if (changed)
+        {
             StartCoroutine(WaitForChanges());
         }
     }
@@ -132,44 +144,52 @@ public class TileBoard : MonoBehaviour
 
         waiting = false;
 
-        foreach (var tile in tiles) {
+        foreach (var tile in tiles)
+        {
             tile.locked = false;
         }
 
-        if (tiles.Count != grid.size) {
+        if (tiles.Count != grid.size)
+        {
             CreateTile();
         }
 
-        if (CheckForGameOver()) {
+        if (CheckForGameOver())
+        {
             gameMaster.GameOver();
         }
     }
 
     public bool CheckForGameOver()
     {
-        if (tiles.Count != grid.size) {
+        if (tiles.Count != grid.size)
+        {
             return false;
         }
 
         foreach (var tile in tiles)
         {
             TileCell up = grid.GetAdjacentCell(tile.cell, Vector2Int.up);
-            if (up != null && CanMerge(tile, up.tile)) {
+            if (up != null && CanMerge(tile, up.tile))
+            {
                 return false;
             }
 
             TileCell down = grid.GetAdjacentCell(tile.cell, Vector2Int.down);
-            if (down != null && CanMerge(tile, down.tile)) {
+            if (down != null && CanMerge(tile, down.tile))
+            {
                 return false;
             }
 
             TileCell left = grid.GetAdjacentCell(tile.cell, Vector2Int.left);
-            if (left != null && CanMerge(tile, left.tile)) {
+            if (left != null && CanMerge(tile, left.tile))
+            {
                 return false;
             }
 
             TileCell right = grid.GetAdjacentCell(tile.cell, Vector2Int.right);
-            if (right != null && CanMerge(tile, right.tile)) {
+            if (right != null && CanMerge(tile, right.tile))
+            {
                 return false;
             }
         }
