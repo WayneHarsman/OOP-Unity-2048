@@ -7,6 +7,8 @@ public class TileBoard : MonoBehaviour
     public GameMaster gameMaster;
     public Tile tilePrefab;
 
+    public AudioSource mergeEffect;
+
     private TileGrid grid;
     private List<Tile> tiles;
     private bool waiting;
@@ -128,6 +130,8 @@ public class TileBoard : MonoBehaviour
         tiles.Remove(pTileA);
         pTileA.Merge(pTileB.cell);
 
+        PlayMergeSound();
+
         //int index = Mathf.Clamp(IndexOf(pTileB.state) + 1, 0, tileStates.Length - 1);
         int number = pTileB.value * 2;
 
@@ -195,6 +199,11 @@ public class TileBoard : MonoBehaviour
         }
 
         return true;
+    }
+
+    
+    private void PlayMergeSound(){
+        mergeEffect.Play();
     }
 
 }

@@ -10,12 +10,10 @@ public class Tile : MonoBehaviour
     public bool locked { get; set; }
 
     public event Action<int> OnStateChanged;
-    
 
     public void SetState(int pValue)
     {
         value = pValue;
-
         OnStateChanged?.Invoke(pValue);
     }
 
