@@ -398,6 +398,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ae1a0856e713a814abefcc19b03d7d00, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2aa1058860de0d4ab13da9dc21b487f, type: 2}
     - target: {fileID: 919132149155446097, guid: ae1a0856e713a814abefcc19b03d7d00, type: 3}
       propertyPath: m_Name
       value: kocka_planety
