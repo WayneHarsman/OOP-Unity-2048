@@ -301,6 +301,8 @@
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.VisualScripting.Flow.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.VisualScripting.State.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
+"Assets/GameRules.cs"
+"Assets/RulesMenu.cs"
 "Assets/Scripts/GameMaster.cs"
 "Assets/Scripts/InGameButtons.cs"
 "Assets/Scripts/InGameMenuHandler.cs"

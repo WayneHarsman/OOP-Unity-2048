@@ -3,9 +3,11 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - DefaultNamespace.TileRenderer
     - GameMaster
+    - GameRules
     - InGameButtons
     - InGameMenuHandler
     - MainMenuButtons
+    - RulesMenu
     - SettingsMenu
     - Spin
     - Tile
@@ -91,6 +93,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MainMenuButtons
     methodName: OpenPreGameMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: RulesMenu
+    methodName: SetGameState
   - assembly: Assembly-CSharp
     fullTypeName: MainMenuButtons
     methodName: OpenMainMenu
@@ -309,6 +314,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 6472}
     - Class: 114
       Script: {instanceID: 6954}
+    - Class: 114
+      Script: {instanceID: 51720}
+    - Class: 114
+      Script: {instanceID: 53224}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1184,6 +1193,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: e5fa1b771efab609fee3752508e7ca3a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameRules
+  - hash:
+      serializedVersion: 2
+      Hash: ecd239381ac091d3cf89a203de65852e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RulesMenu
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenuScene.unity

@@ -9,6 +9,7 @@ public class TileBoard : MonoBehaviour
 
     public AudioSource mergeEffect;
 
+    private GameRules rules;
     private TileGrid grid;
     private List<Tile> tiles;
     private bool waiting;
@@ -17,6 +18,8 @@ public class TileBoard : MonoBehaviour
     {
         grid = GetComponentInChildren<TileGrid>();
         tiles = new List<Tile>(16);
+        rules = GameObject.Find("Rule Manager").GetComponent<GameRules>();
+
     }
 
     public void Pause(bool _pause) { isPaused = _pause; }
@@ -136,7 +139,6 @@ public class TileBoard : MonoBehaviour
         int number = pTileB.value * 2;
 
         pTileB.SetState(number);
-
         gameMaster.IncreaseScore(number);
     }
 
@@ -162,6 +164,14 @@ public class TileBoard : MonoBehaviour
         {
             gameMaster.GameOver();
         }
+        if (rules.GetRule() == 0)
+        {
+            if (CheckFor2048())
+            {
+                gameMaster.GameOver();
+            }
+        }
+
     }
 
     public bool CheckForGameOver()
@@ -201,8 +211,19 @@ public class TileBoard : MonoBehaviour
         return true;
     }
 
-    
-    private void PlayMergeSound(){
+
+    public bool CheckFor2048()
+    {
+
+        foreach (var tile in tiles)
+        {
+            if (tile.value == 2048) return true;
+        }
+        return false;
+    }
+
+    private void PlayMergeSound()
+    {
         mergeEffect.Play();
     }
 

@@ -8,18 +8,31 @@ public class Tile : MonoBehaviour
 
     public int value { get; private set; }
     public bool locked { get; set; }
-
+    private GameRules rules;
     public event Action<int> OnStateChanged;
+
+    private void Awake()
+    {
+        rules = GameObject.Find("Rule Manager").GetComponent<GameRules>();
+    }
 
     public void SetState(int pValue)
     {
-        value = pValue;
+        if (rules.GetRule() == 2 && pValue > 2048)
+        {
+            value = 2048;
+        }
+        else
+        {
+            value = pValue;
+        }
         OnStateChanged?.Invoke(pValue);
     }
 
     public void Spawn(TileCell pCell)
     {
-        if (cell != null) {
+        if (cell != null)
+        {
             cell.tile = null;
         }
 
@@ -31,7 +44,8 @@ public class Tile : MonoBehaviour
 
     public void MoveTo(TileCell pCell)
     {
-        if (cell != null) {
+        if (cell != null)
+        {
             cell.tile = null;
         }
 
@@ -43,7 +57,8 @@ public class Tile : MonoBehaviour
 
     public void Merge(TileCell pCell)
     {
-        if (cell != null) {
+        if (cell != null)
+        {
             cell.tile = null;
         }
 
@@ -69,7 +84,8 @@ public class Tile : MonoBehaviour
 
         transform.position = pTo;
 
-        if (pMerging) {
+        if (pMerging)
+        {
             Destroy(gameObject);
         }
     }
